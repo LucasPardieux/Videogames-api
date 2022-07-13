@@ -66,7 +66,7 @@ module.exports = {
                 include: Genre
             });
             rpta = info.data.results;
-            arrayConcat = rpta.concat(infoDB);
+            arrayConcat = infoDB.concat(rpta);
             
             let arrayAux = arrayConcat.map((g, i)=>{
                 if(i < 15){
