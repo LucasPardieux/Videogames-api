@@ -60,13 +60,11 @@ module.exports = {
         try {
             const info = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`)
             const infoDB = await Videogame.findAll({
-                where:{
-                    name:name
-                },
                 include: Genre
             });
+            const gameSearched = infoDB.filter((g)=>g.dataValues.name.toUpperCase().includes(name.toUpperCase()))
             rpta = info.data.results;
-            arrayConcat = infoDB.concat(rpta);
+            arrayConcat = gameSearched.concat(rpta);
             
             let arrayAux = arrayConcat.map((g, i)=>{
                 if(i < 15){
