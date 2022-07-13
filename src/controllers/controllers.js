@@ -72,7 +72,7 @@ module.exports = {
                         id:g.id,
                         name: g.name,
                         released: g.released,
-                        image: g.background_image,
+                        image: g.background_image?g.background_image:g.image,
                         rating: g.rating,
                         platforms: g.platforms,
                         genres: g.genres,
