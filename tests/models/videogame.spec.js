@@ -15,6 +15,7 @@ describe('Videogame model', () => {
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
+        console.log("algo")
         Recipe.create({ name: 'Super Mario Bros' });
       });
     });
